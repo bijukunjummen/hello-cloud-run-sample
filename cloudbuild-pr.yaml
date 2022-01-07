@@ -17,6 +17,11 @@ steps:
         set -x
         ./gradlew bootBuildImage --imageName=us-docker.pkg.dev/$PROJECT_ID/docker-repo/hello-cloud-run-sample:PR-$SHORT_SHA
 
+  - name: 'gcr.io/cloud-builders/docker'
+    id: push-image
+    args: ['push', 'us-docker.pkg.dev/$PROJECT_ID/docker-repo/hello-cloud-run-sample:PR-$SHORT_SHA']
+
+
   - name: 'gcr.io/cloud-builders/gcloud'
     id: deploy
     args: [ 
