@@ -33,8 +33,8 @@ steps:
       '--project=$PROJECT_ID', 
       '--region=us-central1', 
       '--allow-unauthenticated', 
-      '--memory=256Mi', 
+      '--memory=512Mi', 
       '--set-env-vars=SPRING_PROFILES_ACTIVE=gcp', 
       "--no-traffic",
-      "--tag preview-$_PR_NUMBER"      
+      "--tag preview-$_PR_NUMBER"
     ]
