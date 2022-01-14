@@ -10,7 +10,7 @@ class GreetingsController {
 
     @GetMapping("/greetings")
     fun greetings(): Message {
-        return Message("hello")
+        return Message("hello - from pr")
     }
 
     @GetMapping("/greetings/{payload}")

@@ -36,5 +36,5 @@ steps:
       '--memory=512Mi', 
       '--set-env-vars=SPRING_PROFILES_ACTIVE=gcp', 
       "--no-traffic",
-      "--tag preview-$_PR_NUMBER"
+      "--tag=preview-$_PR_NUMBER"
     ]
