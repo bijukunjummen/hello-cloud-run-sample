@@ -35,6 +35,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation platform('com.google.cloud:libraries-bom:25.1.0')
     implementation('com.google.cloud:google-cloud-logging-logback')
+    implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
+    implementation("ch.qos.logback.contrib:logback-json-classic:0.1.5")
 }
 
 test {
