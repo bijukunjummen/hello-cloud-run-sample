@@ -2,10 +2,10 @@
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
 
-    <appender name="GCP" class="com.google.cloud.logging.logback.LoggingAppender">
+    <appender name="gcpLoggingAppender" class="com.google.cloud.logging.logback.LoggingAppender">
         <redirectToStdout>true</redirectToStdout>
     </appender>
-    <appender name="JSON" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="jsonLoggingAppender" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
             <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
             </jsonFormatter>
@@ -13,7 +13,19 @@
             <appendLineSeparator>true</appendLineSeparator>
         </layout>
     </appender>
+    <appender name="logStashAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <fieldNames>
+                <timestamp/>
+                <version/>
+                <logger/>
+                <thread/>
+                <level/>
+                <levelValue/>
+            </fieldNames>
+        </encoder>
+    </appender>
     <root level="INFO">
-        <appender-ref ref="JSON"/>
+        <appender-ref ref="gcpLoggingAppender"/>
     </root>
 </configuration>

@@ -37,6 +37,8 @@ dependencies {
     implementation('com.google.cloud:google-cloud-logging-logback')
     implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
     implementation("ch.qos.logback.contrib:logback-json-classic:0.1.5")
+
+    implementation("net.logstash.logback:logstash-logback-encoder:7.1.1")
 }
 
 test {
