@@ -6,7 +6,7 @@
         <redirectToStdout>true</redirectToStdout>
     </appender>
     <appender name="jsonLoggingAppender" class="ch.qos.logback.core.ConsoleAppender">
-        <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+        <layout class="org.bk.logback.custom.GcpJsonLayout">
             <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
             </jsonFormatter>
             <timestampFormat>yyyy-MM-dd HH:mm:ss.SSS</timestampFormat>
@@ -26,6 +26,11 @@
         </encoder>
     </appender>
     <root level="INFO">
-        <appender-ref ref="gcpLoggingAppender"/>
+        <springProfile name="gcp">
+            <appender-ref ref="jsonLoggingAppender"/>
+        </springProfile>
+        <springProfile name="local">
+            <appender-ref ref="CONSOLE"/>
+        </springProfile>
     </root>
 </configuration>
